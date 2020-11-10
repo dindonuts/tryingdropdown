@@ -1,0 +1,140 @@
+.card {
+    width: 20.4375rem;
+    min-height: 33.125rem;
+    margin: 2.5rem auto 2.5rem auto;
+    border-radius: 1.25rem;
+    background: $lightGrayishBlue;
+    font-family: "Kumbh Sans";
+
+    @include breakpoint-up(large) {
+        width: 57.5rem;
+        min-height: 31.25rem;
+        margin-top: 7%;
+    }
+}
+
+.container {
+    display: flex;
+    // align-items: center;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+
+    @include breakpoint-up(large) {
+        flex-direction: row;
+        flex: 1;
+    }
+
+    &__images {
+        flex: 1;
+        height: inherit;
+
+        .dekstop {
+            height: inherit;
+            background-image: url("/images/bg-pattern-desktop.svg");
+            background-size: 150%;
+            background-repeat: no-repeat;
+            background-position: 130% 68%;
+
+            @include breakpoint-down(medium) {
+                display: none;
+            }
+
+            img {
+                margin: 12% -30%;
+                width: 115%;
+            }
+        }
+
+        .mobile {
+            background-image: url("/images/bg-pattern-mobile.svg");
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center 0%;
+
+            @include breakpoint-up(large) {
+                display: none;
+            }
+
+            img {
+                margin: -36% 0 5% 0;
+                width: 90%;
+            }
+        }
+    }
+
+    &__faq {
+        flex: 4;
+        display: inline-block;
+        height: inherit;
+        width: inherit;
+        font-size: $font-sm;
+        margin: 2.5rem auto 2.5rem auto;
+
+        @include breakpoint-up(large) {
+            flex: 1;
+            margin-right: 2.5rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin: auto;
+            margin-bottom: 2.1875rem;
+            font-size: $font-med;
+
+            @include breakpoint-up(large) {
+                text-align: left;
+                margin-left: 0;
+                font-size: $font-lg;
+            }
+        }
+
+        .box {
+            display: inline-block;
+            width: inherit;
+
+            .subox {
+                font-size: $font-sm;
+                color: $veryDarkGrayishBlue;
+
+                @include breakpoint-up(large) {
+                    font-size: $font-sm;
+                }
+
+                input,
+                .desc {
+                    display: none;
+                }
+
+                label {
+                    margin-bottom: 2.25rem;
+                }
+
+                :checked ~ .desc {
+                    display: block;
+                    margin-bottom: 1.25rem;
+                }
+
+                :checked ~ label {
+                    margin-bottom: 0.515rem;
+                }
+
+                :checked ~ .arrow {
+                    transform: rotate(90deg);
+                    transition: 200ms ease-in-out;
+                }
+
+                .arrow {
+                    // flex: 1;
+                    float: right;
+                    color: red;
+                    width: 10px;
+                    text-align: center;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    transform: rotate(270deg);
+                }
+            }
+        }
+    }
+}
